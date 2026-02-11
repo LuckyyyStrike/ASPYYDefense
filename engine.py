@@ -3,21 +3,20 @@ from foe import Foe
 
 
 class Engine:
-    def __init__(self, tickrateInSeconds):
-        self.tickrateInSeconds = tickrateInSeconds
+    def __init__(self, tick_interval_in_seconds):
+        self.tick_interval_in_seconds = tick_interval_in_seconds
 
     def start(self):
-        doLoop = True
-        while doLoop:
-            time.sleep(self.tickrateInSeconds)
-            Engine.drawMap()
+        while True:
+            time.sleep(self.tick_interval_in_seconds)
+            Engine.draw_Map()
 
     @staticmethod
-    def drawMap():
+    def draw_Map():
         Engine.hide_cursor()
         Engine.reset_cursor()
         Engine.clear_screen()
-        Engine.drawBorder()
+        Engine.draw_Border()
 
     @staticmethod
     def move_cursor(x, y):
@@ -40,29 +39,29 @@ class Engine:
         print("\033[?25h", end="")
 
     @staticmethod
-    def moveEntity(foe: Foe, x: int, y: int):
-        Engine.move_cursor(foe.xPosition, foe.yPosition)
+    def move_Entity(foe: Foe, x: int, y: int):
+        Engine.move_cursor(foe.x_position, foe.y_position)
         print(" ")
         Engine.move_cursor(x, y)
         print(foe.asciiSymbol)
         Engine.hide_cursor()
-        foe.xPosition = x
-        foe.yPosition = y
+        foe.x_position = x
+        foe.y_position = y
 
     @staticmethod
-    def drawBorder():
+    def draw_Border():
         columns: int = 80
         rows: int = 30
         title: str = "ASCII TOWER DEFENSE"
         # I want to center the title on the top border
-        columnsMinusTitle = columns - len(title)
-        columnsBeforeTitle = columnsMinusTitle // 2 + columnsMinusTitle % 2
-        columnsAfterTitle = columnsMinusTitle // 2
+        columns_minus_title = columns - len(title)
+        columns_before_title = columns_minus_title // 2 + columns_minus_title % 2
+        columns_after_title = columns_minus_title // 2
 
-        for column in range(columnsBeforeTitle):
+        for column in range(columns_before_title):
             print("=", end="")
         print(title, end="")
-        for column in range(columnsAfterTitle):
+        for column in range(columns_after_title):
             print("=", end="")
         print()
 

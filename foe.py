@@ -1,4 +1,4 @@
 class Foe:
-    xPosition = 0
-    yPosition = 0
-    asciiSymbol = "+"
+    x_position: int = 0
+    y_position: int = 0
+    asciiSymbol: str = "+"
