@@ -27,5 +27,5 @@ class Engine:
 
     def start(self):
         while True:
-            time.sleep(self.tick_interval_in_seconds)
             Map_Renderer.render_map(self.map)
+            time.sleep(self.tick_interval_in_seconds)

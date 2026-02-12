@@ -8,7 +8,7 @@ logging.basicConfig(
 logger = logging.getLogger()
 
 try:
-    eng = Engine(1)
+    eng = Engine(10)
     eng.start()
 except Exception as e:
     logger.error(e)

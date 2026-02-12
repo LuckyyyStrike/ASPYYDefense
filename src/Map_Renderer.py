@@ -8,7 +8,7 @@ class Map_Renderer:
         Map_Renderer.reset_cursor()
 
         for row in map._matrix:
-            row_symbols = [c.ascii_symbol for c in row]
+            row_symbols = "".join([c.ascii_symbol for c in row])
             print(row_symbols)
 
         Map_Renderer.hide_cursor()
@@ -23,7 +23,7 @@ class Map_Renderer:
 
     @staticmethod
     def clear_screen():
-        print("\033[J", end="")
+        print("\033[2J", end="")
 
     @staticmethod
     def hide_cursor():

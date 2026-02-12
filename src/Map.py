@@ -20,7 +20,7 @@ class Map:
         # We want to center the map area vertically
         padding_rows_count = max_height - len(map_description.lines)
         padding_rows_infront = padding_rows_count // 2
-        padding_rows_after = padding_rows_infront + padding_rows_count % 2
+        padding_rows_after = padding_rows_infront + (padding_rows_count % 2)
 
         first_row = self.create_centered_row(Literals.border_title, 0, "=")
         self._matrix.append(first_row)
@@ -42,8 +42,8 @@ class Map:
 
     def create_centered_row(self, content: str, row_index: int, padding_character: str):
         columns_minus_content = self.max_width - len(content) - 2
-        columns_before_content = columns_minus_content // 2 + columns_minus_content % 2
-        columns_after_content = columns_minus_content // 2
+        columns_before_content = columns_minus_content // 2
+        columns_after_content = columns_before_content + (columns_minus_content % 2)
 
         columns: list[Entity] = [Entity(0, row_index, "I")]
         column_index = 1
