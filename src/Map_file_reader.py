@@ -25,7 +25,7 @@ class Map_file_reader:
         )
 
     def create_map_definition(self):
-        return Map_Description(self.max_width, self.max_height, self.lines)
+        return Map_Description(self.lines)
 
     @staticmethod
     def _check_for_singleton_character(string: str, singleton: str, singleton_name: str):
