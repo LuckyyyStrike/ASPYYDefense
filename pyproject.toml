@@ -1,0 +1,25 @@
+
+[project]
+name = "Power_Defense"
+version = "0.1.0"
+description = "Little tower defense like game for learning python."
+requires-python = ">=3.14"
+dependencies = [
+    "pytest",
+]
+
+# -------------------------
+# pytest (Tests)
+# -------------------------
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-v"
+
+# -------------------------
+# Ruff (Linter + Formatter, ersetzt flake8/isort/pylint)
+# -------------------------
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
