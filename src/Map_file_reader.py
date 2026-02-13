@@ -5,7 +5,7 @@ from Map_Description import Map_Description
 
 class Map_file_reader:
     def __init__(self, lines: list[str], max_width: int, max_height: int):
-        self.lines = lines
+        self.lines = list(map(str.rstrip, lines))
         self.max_width = max_width
         self.max_height = max_height
 
