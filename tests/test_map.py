@@ -1,10 +1,12 @@
-from Map import Map
-from Map_Description import Map_Description
+from map import Map
+from map_description import MapDescription
 
 
 def test_map_boundaries():
+    width = 80
+    height = 30
     lines = ["E--------------", "              |", "X------------------"]
-    map = Map(Map_Description(lines), 80, 30)
-    assert len(map._matrix) == 30
+    map = Map(MapDescription(lines), width, height)
+    assert len(map._matrix) == height, "Matrix exceeds height of {}".format(height)
     for row in map._matrix:
-        assert len(row) == 80
+        assert len(row) == width
